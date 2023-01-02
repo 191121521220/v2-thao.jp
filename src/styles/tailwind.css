@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.ant-layout-header{
+    @apply bg-white flex items-center 
+}
+
+.ant-input{
+    @apply w-48 h-10
+}
+
