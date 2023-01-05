@@ -3,25 +3,11 @@ import { Col, DatePicker } from "antd";
 import { Text } from "./components/text";
 import MasterLayout from "./layout/MasterLayout";
 import React from "react";
+import Home from "@pages/Home";
 const App = () => {
   return (
-    <MasterLayout />
+    <Home />
 
-    // <Fragment>
-    //   {/* <div
-    //     style={{
-    //       display: "flex",
-    //       justifyContent: "center",
-    //       alignItems: "center",
-    //       height: "100vh",
-    //     }}
-    //   >
-    //     <div>
-    //       <Text title="Hello AsurRaa" />
-    //       <DatePicker />
-    //     </div>
-    //   </div> */}
-    // </Fragment>
   );
 };
 

@@ -4,16 +4,13 @@ import { Breadcrumb, Layout, Menu } from 'antd';
 import React from 'react';
 import { Button } from 'antd';
 import Search from 'antd/lib/input/Search';
-
+import { MenuTN, MenuKNM } from '@mockdata/MenuLotrinh';
+import { GiHamburgerMenu } from 'react-icons/gi'
+import Title from 'antd/lib/skeleton/Title';
 
 
 
 const { Header, Content, Sider } = Layout;
-
-// const items1: MenuProps['items'] = ['TRANG CHU', 'GIOI THIEU', 'LIEN HE'].map(key => ({
-//   key,
-//   label: `nav ${key}`,
-// }));
 
 const items1 = [
     { label: 'TRANG CHU', key: 'item-1' }, // remember to pass the key prop
@@ -21,49 +18,54 @@ const items1 = [
     { label: 'LIEN HE', key: 'item-3' }, // which is required
 
 ]
-const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
-    (icon, index) => {
-        const key = String(index + 1);
 
-        return {
-            key: `sub${key}`,
-            icon: React.createElement(icon),
-            label: `subnav ${key}`,
+interface IMasterLayoutProps {
+    children: React.ReactNode
+}
 
-            children: new Array(4).fill(null).map((_, j) => {
-                const subKey = index * 4 + j + 1;
-                return {
-                    key: subKey,
-                    label: `option${subKey}`,
-                };
-            }),
-        };
-    },
-);
-
-const MasterLayout: React.FC = () => (
+const MasterLayout: React.FC<IMasterLayoutProps> = ({ children }) => (
     <Layout>
         <Header className="header justify-between" >
             <Space>
                 <img src='src\assets\images\Thao.JP.png' className='logo w-[86px] h-[23px]' />
                 <Button type="default" className='bg-[#333] text-white mg-[10px] flex' >
-                    Menu
+                    Menu <GiHamburgerMenu />
                 </Button>
             </Space>
             <div className='search'>
                 <Search placeholder="input search text " style={{ width: 200 }} />
             </div>
-            <Menu theme="white" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
+            <Menu theme="light" mode="horizontal" defaultSelectedKeys={['2']} items={items1} />
         </Header>
         <Layout >
-            <Sider width={200} className="site-layout-background">
+
+            <Sider width={300} className="site-layout-background custom-sider">
+                <h2 className='jp text-[21px] font-bold' >TIẾNG NHẬT</h2>
+
+
                 <Menu
                     mode="inline"
                     defaultSelectedKeys={['1']}
                     defaultOpenKeys={['sub1']}
                     style={{ height: '100%', borderRight: 0 }}
-                    items={items2}
+                    items={MenuTN}
                 />
+                <Menu
+                    mode="inline"
+                    defaultSelectedKeys={['1']}
+                    defaultOpenKeys={['sub1']}
+                    style={{ height: '100%', borderRight: 0 }}
+                    items={MenuTN}
+                />
+                <h2 className='jp text-[21px] font-bold' >KỸ NĂNG MỀM</h2>
+                <Menu
+                    mode="inline"
+                    defaultSelectedKeys={['1']}
+                    defaultOpenKeys={['sub1']}
+                    style={{ height: '100%', borderRight: 0 }}
+                    items={MenuKNM}
+                />
+
             </Sider>
             <Layout style={{ padding: '0 24px 24px' }}>
                 <Breadcrumb style={{ margin: '16px 0' }}>
@@ -79,7 +81,7 @@ const MasterLayout: React.FC = () => (
                         minHeight: 280,
                     }}
                 >
-                    Content
+                    {children}
                 </Content>
             </Layout>
         </Layout>

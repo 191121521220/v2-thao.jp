@@ -2,11 +2,27 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@src/*": ["./src/*"],
-      "@utils/*": ["./src/utilities/*"],
-      "@components/*": ["./src/components/*"],
-      "@services/*": ["./src/services/*"],
-      "@pages/*": ["./src/pages/*"]
+      "@src/*": [
+        "./src/*"
+      ],
+      "@utils/*": [
+        "./src/utilities/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@services/*": [
+        "./src/services/*"
+      ],
+      "@pages/*": [
+        "./src/pages/*"
+      ],
+      "@mockdata/*": [
+        "./src/mockdata/*"
+      ],
+      "@layout/*": [
+        "./src/layout/*"
+      ],
     }
   }
 }

@@ -6,7 +6,16 @@
     @apply bg-white flex items-center 
 }
 
+.ant-layout-sider-children{
+    @apply bg-white
+}
 .ant-input{
     @apply w-48 h-10
 }
+.jp{
+    @apply ml-10
+}
 
+.custom-sider .ant-menu{
+    @apply !h-auto
+}
